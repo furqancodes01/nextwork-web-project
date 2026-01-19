@@ -1,9 +1,9 @@
 #!/bin/bash
-isExistApp="$(pgrep httpd)"
-if [[ -n $isExistApp ]]; then
-sudo systemctl stop httpd.service
+
+if systemctl is-active --quiet httpd; then
+  sudo systemctl stop httpd
 fi
-isExistApp="$(pgrep tomcat)"
-if [[ -n $isExistApp ]]; then
-sudo systemctl stop tomcat.service
+
+if pgrep -f tomcat > /dev/null; then
+  sudo /opt/tomcat/bin/shutdown.sh
 fi
