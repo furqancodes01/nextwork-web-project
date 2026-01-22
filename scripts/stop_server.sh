@@ -14,3 +14,4 @@ sudo rm -rf /usr/share/tomcat/webapps/nextwork-web-project
 sudo rm -rf /usr/share/tomcat/webapps/nextwork-web-project.war
 
 exit 0
+
