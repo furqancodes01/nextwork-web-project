@@ -1,6 +1,15 @@
 #!/bin/bash
-sudo yum install tomcat -y
-sudo yum -y install httpd
+# Install Tomcat if not already installed
+if ! rpm -q tomcat &> /dev/null; then
+  sudo yum install tomcat -y
+fi
+
+# Install httpd if not already installed
+if ! rpm -q httpd &> /dev/null; then
+  sudo yum -y install httpd
+fi
+
+# Configure Apache reverse proxy
 sudo cat << EOF > /etc/httpd/conf.d/tomcat_manager.conf
 <VirtualHost *:80>
   ServerAdmin root@localhost
@@ -12,4 +21,3 @@ sudo cat << EOF > /etc/httpd/conf.d/tomcat_manager.conf
   ProxyPassReverse / http://localhost:8080/nextwork-web-project/
 </VirtualHost>
 EOF
-
