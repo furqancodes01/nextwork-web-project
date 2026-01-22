@@ -11,8 +11,8 @@ if systemctl is-active --quiet tomcat; then
   sleep 5
 fi
 
-# Remove old deployment - do this AFTER Tomcat stops
-sudo rm -rf /usr/share/tomcat/webapps/nextwork-web-project
-sudo rm -rf /usr/share/tomcat/webapps/nextwork-web-project.war
+# Remove old deployment - CORRECTED PATH
+sudo rm -rf /var/lib/tomcat/webapps/nextwork-web-project
+sudo rm -rf /var/lib/tomcat/webapps/nextwork-web-project.war
 
 exit 0
