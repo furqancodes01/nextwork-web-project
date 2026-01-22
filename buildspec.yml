@@ -1,5 +1,4 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -24,4 +23,3 @@ artifacts:
     - appspec.yml
     - scripts/**/*
   discard-paths: no
-
